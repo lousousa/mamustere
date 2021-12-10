@@ -24,7 +24,7 @@ function love.load()
 
   player = Player:new{
     x = 16,
-    y = 16 * 15
+    y = 16 * 82
   }
 end
 
