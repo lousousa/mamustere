@@ -18,11 +18,11 @@
 }
 
 .game-wrapper {
-  border-radius: 4px;
   overflow: hidden;
   height: 600px;
   width: 800px;
   border: 1px solid #ff74d3;
+  border-top: 0;
 }
 
 .button-go-fullscreen {
@@ -37,4 +37,18 @@
 .button-go-fullscreen:hover {
   background-color: #ff74d3;
   color: #fff;
+}
+
+.cover-wrapper {
+  width: 100%;
+  font-size: 0;
+  text-align: center;
+}
+
+.cover-wrapper img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border: 1px solid #ff74d3;
+  border-bottom: 0;
 }
