@@ -12,7 +12,7 @@ a (wip) platformer game developed using the \*awesome\* [love2d](https://love2d.
 - [windfield](https://github.com/a327ex/windfield)
 - [sti](https://github.com/karai17/Simple-Tiled-Implementation)
 - [anim8](https://github.com/kikito/anim8)
-- [hump.camera](https://github.com/vrld/hump)
+- [hump](https://github.com/vrld/hump)
 
 ## built with
 

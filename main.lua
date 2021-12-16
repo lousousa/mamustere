@@ -1,34 +1,49 @@
 wf = require "libraries/windfield"
 sti = require "libraries/sti"
 anim8 = require "libraries/anim8"
-camera = require "libraries/camera"
+camera = require "libraries/camera" -- hump
+timer = require "libraries/timer" -- hump
 
 require "models/Player"
+require "models/Enemy"
+
+gameIsPaused = false
 
 function love.load()
   love.window.setTitle('mamustere')
   love.graphics.setDefaultFilter("nearest", "nearest")
-  
+
   cam = camera(0, 0, 2)
   world = wf.newWorld(0, 500)
   gameMap = sti("maps/level-00.lua")
+  
+  world:addCollisionClass("Enemy")
+  world:addCollisionClass("Player")
 
-  blockPlatforms = {}
   if gameMap.layers["block-platforms"] then
     for i, obj in pairs(gameMap.layers["block-platforms"].objects) do
       local platform = world:newRectangleCollider(obj.x, obj.y, obj.width, obj.height)
       platform:setType("static")
-      table.insert(blockPlatforms, platform)
+    end
+  end
+
+  sunEnemies = {}
+  if gameMap.layers["sun-enemies"] then
+    for i, obj in pairs(gameMap.layers["sun-enemies"].objects) do
+      local enemy = Enemy:new{ x = obj.x + 32, y = obj.y }
+      table.insert(sunEnemies, enemy)
     end
   end
 
   player = Player:new{
-    x = 16,
-    y = 16 * 82
+    x = 16 * 2,
+    y = 16 * 98
   }
 end
 
 function love.update(dt)
+  timer.update(dt)
+
   local isMoving = false
   local px, py = player.collider:getLinearVelocity()
   
@@ -91,7 +106,16 @@ function love.update(dt)
 
   world:update(dt)
 
-  player.animation:update(dt)
+  if gameIsPaused == false then
+    player.animation:update(dt)
+    
+    for idx, enemy in pairs(sunEnemies) do
+      enemy.animation:update(dt)
+      if enemy.collider:enter("Player") then
+        player:hurt()
+      end
+    end
+  end
 end
 
 function love.keypressed(key)
@@ -99,14 +123,22 @@ function love.keypressed(key)
 
   if key == "up" and py == 0 then
     player:setJumping()
-    player.collider:applyLinearImpulse(0, -140)
+    player.collider:applyLinearImpulse(0, -175)
   end
 end
 
 function love.draw()
-  cam:attach()
+  cam:attach()    
     gameMap:drawLayer(gameMap.layers["platforms"])
-    -- world:draw()
+    
+    for idx, enemy in pairs(sunEnemies) do
+      enemy.animation:draw(
+        enemy.spriteSheet,
+        enemy.x,
+        enemy.y
+      )
+    end
+
     player.animation:draw(
       player.spriteSheet,
       player.x,
@@ -117,5 +149,7 @@ function love.draw()
       player.width / 2, -- offset x
       player.height / 2 -- offset y
     )
+
+    -- world:draw()
   cam:detach()
 end
