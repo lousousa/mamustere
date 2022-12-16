@@ -29,10 +29,10 @@ function love.keypressed(key)
 end
 
 function love.draw()
-  cam:attach()    
+  cam:attach()
     gameMap:drawLayer(gameMap.layers["platforms"])
-    
-    for idx, enemy in pairs(sunEnemies) do
+
+    for idx, enemy in pairs(enemies) do
       enemy.animation:draw(
         enemy.spriteSheet,
         enemy.x,

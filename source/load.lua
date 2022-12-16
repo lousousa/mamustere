@@ -5,7 +5,7 @@ local function load()
   cam = camera(0, 0, 2)
   world = wf.newWorld(0, 500)
   gameMap = sti("maps/level-00.lua")
-  
+
   world:addCollisionClass("Enemy")
   world:addCollisionClass("Player")
 
@@ -16,11 +16,11 @@ local function load()
     end
   end
 
-  sunEnemies = {}
+  enemies = {}
   if gameMap.layers["sun-enemies"] then
     for i, obj in pairs(gameMap.layers["sun-enemies"].objects) do
       local enemy = Enemy:new{ x = obj.x + 32, y = obj.y }
-      table.insert(sunEnemies, enemy)
+      table.insert(enemies, enemy)
     end
   end
 

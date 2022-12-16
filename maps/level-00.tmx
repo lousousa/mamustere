@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="230">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="240">
  <editorsettings>
   <export target="level-00.lua" format="lua"/>
  </editorsettings>
@@ -95,6 +95,9 @@
   <object id="133" x="240" y="144" width="16" height="16"/>
   <object id="226" x="912" y="1440" width="32" height="16"/>
   <object id="228" x="224" y="1296" width="16" height="48"/>
+ </objectgroup>
+ <objectgroup id="7" name="goal" locked="1">
+  <object id="239" x="320" y="1568" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="5" name="sun-enemies" locked="1" offsetx="32" offsety="0">
   <object id="140" x="480" y="1360" width="16" height="16"/>
