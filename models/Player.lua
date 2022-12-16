@@ -48,7 +48,7 @@ end
 
 function Player:gotoRight()
   if isPaused then
-    return
+    do return end
   end
 
   local px, py = self.collider:getLinearVelocity()
@@ -67,7 +67,7 @@ end
 
 function Player:gotoLeft()
   if isPaused then
-    return
+    do return end
   end
 
   local px, py = self.collider:getLinearVelocity()
@@ -86,7 +86,7 @@ end
 
 function Player:setWalking()
   if isPaused then
-    return
+    do return end
   end
 
   self.animation = self.animations[self.direction].walking
@@ -94,7 +94,7 @@ end
 
 function Player:setJumping()
   if isPaused then
-    return
+    do return end
   end
 
   self.animation = self.animations[self.direction].jumping
@@ -102,6 +102,7 @@ end
 
 function Player:damage()
   self.collider:setType("static")
+  self.animation:gotoFrame(1)
   isPaused = true
 
   function respawn()
@@ -117,6 +118,7 @@ end
 
 function Player:goal()
   self.collider:setType("static")
+  self.animation:gotoFrame(1)
   isPaused = true
 
   function showEndingScreen()
