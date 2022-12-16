@@ -6,6 +6,7 @@ timer = require "libraries/timer" -- hump
 
 require "models/Player"
 require "models/Enemy"
+require "models/Goal"
 
 gameIsPaused = false
 
@@ -49,6 +50,12 @@ function love.draw()
       nil, -- scale y
       player.width / 2, -- offset x
       player.height / 2 -- offset y
+    )
+
+    goal.animation:draw(
+      goal.spriteSheet,
+      goal.x,
+      goal.y
     )
 
     -- world:draw()

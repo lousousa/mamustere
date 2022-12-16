@@ -65,11 +65,12 @@ local function update(dt)
 
   if gameIsPaused == false then
     player.animation:update(dt)
+    goal.animation:update(dt)
 
     for idx, enemy in pairs(enemies) do
       enemy.animation:update(dt)
       if enemy.collider:enter("Player") then
-        player:hurt()
+        player:damage()
       end
     end
   end

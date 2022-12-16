@@ -8,6 +8,7 @@ local function load()
 
   world:addCollisionClass("Enemy")
   world:addCollisionClass("Player")
+  world:addCollisionClass("Goal")
 
   if gameMap.layers["block-platforms"] then
     for i, obj in pairs(gameMap.layers["block-platforms"].objects) do
@@ -22,6 +23,11 @@ local function load()
       local enemy = Enemy:new{ x = obj.x + 32, y = obj.y }
       table.insert(enemies, enemy)
     end
+  end
+
+  if gameMap.layers["goal"] then
+    local obj = gameMap.layers["goal"].objects[1]
+    goal = Goal:new{ x = obj.x + 32, y = obj.y }
   end
 
   player = Player:new{

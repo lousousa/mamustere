@@ -14,7 +14,7 @@ function Player:new (o)
   }
 
   o.direction = "r"
-  
+
   o.spriteSheet = love.graphics.newImage("assets/mamukitty.png")
 
   o.grid = anim8.newGrid(
@@ -100,7 +100,7 @@ function Player:setJumping()
   self.animation = self.animations[self.direction].jumping
 end
 
-function Player:hurt()
+function Player:damage()
   self.collider:setType("static")
   gameIsPaused = true
 
