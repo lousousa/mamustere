@@ -4,9 +4,9 @@ a (wip) platformer game developed using the \*awesome\* [love2d](https://love2d.
 
 ## getting started
 
-1- install **love** and add it to system enviroment path
+1- install **love** and add it to the system enviroment path
 
-2- enter this directory then run `love .`
+2- enter this repository directory then run `love .`
 
 ## utility tools
 
