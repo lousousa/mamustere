@@ -63,7 +63,7 @@ local function update(dt)
 
   world:update(dt)
 
-  if gameIsPaused == false then
+  if isPaused == false then
     player.animation:update(dt)
     goal.animation:update(dt)
 
@@ -72,6 +72,10 @@ local function update(dt)
       if enemy.collider:enter("Player") then
         player:damage()
       end
+    end
+
+    if goal.collider:enter("Player") then
+      player:goal()
     end
   end
 end

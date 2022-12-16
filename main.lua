@@ -8,7 +8,8 @@ require "models/Player"
 require "models/Enemy"
 require "models/Goal"
 
-gameIsPaused = false
+isPaused = false
+isShowingEndingScreen = false
 
 function love.load()
   local load = require("source/load")
@@ -30,6 +31,12 @@ function love.keypressed(key)
 end
 
 function love.draw()
+  if isShowingEndingScreen == true then
+    print("thanks for playing")
+
+    do return end
+  end
+
   cam:attach()
     gameMap:drawLayer(gameMap.layers["platforms"])
 

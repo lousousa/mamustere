@@ -22,7 +22,7 @@ return {
       spacing = 0,
       margin = 0,
       columns = 2,
-      image = "../assets/platforms.png",
+      image = "../assets/images/platforms.png",
       imagewidth = 32,
       imageheight = 16,
       objectalignment = "unspecified",

@@ -4,7 +4,7 @@
   <export target="level-00.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" name="platforms" tilewidth="16" tileheight="16" tilecount="2" columns="2">
-  <image source="../assets/platforms.png" width="32" height="16"/>
+  <image source="../assets/images/platforms.png" width="32" height="16"/>
  </tileset>
  <objectgroup id="4" name="block-platforms" locked="1">
   <object id="35" x="0" y="1584" width="480" height="16"/>

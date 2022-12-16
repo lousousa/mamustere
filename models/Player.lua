@@ -15,7 +15,7 @@ function Player:new (o)
 
   o.direction = "r"
 
-  o.spriteSheet = love.graphics.newImage("assets/mamukitty.png")
+  o.spriteSheet = love.graphics.newImage("assets/images/mamukitty.png")
 
   o.grid = anim8.newGrid(
     o.width,
@@ -47,7 +47,7 @@ function Player:new (o)
 end
 
 function Player:gotoRight()
-  if gameIsPaused then
+  if isPaused then
     return
   end
 
@@ -66,7 +66,7 @@ function Player:gotoRight()
 end
 
 function Player:gotoLeft()
-  if gameIsPaused then
+  if isPaused then
     return
   end
 
@@ -85,7 +85,7 @@ function Player:gotoLeft()
 end
 
 function Player:setWalking()
-  if gameIsPaused then
+  if isPaused then
     return
   end
 
@@ -93,7 +93,7 @@ function Player:setWalking()
 end
 
 function Player:setJumping()
-  if gameIsPaused then
+  if isPaused then
     return
   end
 
@@ -102,15 +102,26 @@ end
 
 function Player:damage()
   self.collider:setType("static")
-  gameIsPaused = true
+  isPaused = true
 
   function respawn()
     self.collider:setType("dynamic")
-    gameIsPaused = false
+    isPaused = false
     self.collider:setX(self.checkpointPosition.x)
     self.collider:setY(self.checkpointPosition.y)
     self.direction = "r"
   end
 
   timer.after(1, function() respawn() end)
+end
+
+function Player:goal()
+  self.collider:setType("static")
+  isPaused = true
+
+  function showEndingScreen()
+    isShowingEndingScreen = true
+  end
+
+  timer.after(1, function() showEndingScreen() end)
 end

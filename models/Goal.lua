@@ -8,7 +8,7 @@ function Goal:new (o)
   o.width = 16
   o.height = 16
 
-  o.spriteSheet = love.graphics.newImage("assets/goal.png")
+  o.spriteSheet = love.graphics.newImage("assets/images/goal.png")
 
   o.grid = anim8.newGrid(
     o.width,
