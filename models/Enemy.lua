@@ -1,7 +1,7 @@
 Enemy = {}
 
 function Enemy:new (o)
-  --  o = o or {}
+  -- o = o or {}
   setmetatable(o, self)
   self.__index = self
 
