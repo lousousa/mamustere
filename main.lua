@@ -32,7 +32,12 @@ end
 
 function love.draw()
   if isShowingEndingScreen == true then
-    print("thanks for playing")
+    local w = love.graphics.getWidth()
+    local h = love.graphics.getHeight()
+    local fontHeight = love.graphics.getFont():getHeight()
+    local lineHeight = love.graphics.getFont():getLineHeight()
+
+    love.graphics.printf("you beat the level,\nyou're awesome!\n\nthanks for playing!", 0, (h - fontHeight * lineHeight * 4)/2, w, "center")
 
     do return end
   end
