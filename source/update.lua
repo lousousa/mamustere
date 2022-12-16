@@ -80,8 +80,4 @@ local function update(dt)
   end
 end
 
-local function camUpdate()
-
-end
-
 return update
