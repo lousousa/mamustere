@@ -1,9 +1,9 @@
-local function update(dt) 
+local function update(dt)
   timer.update(dt)
 
   local isMoving = false
   local px, py = player.collider:getLinearVelocity()
-  
+
   if love.keyboard.isDown("right") then
     isMoving = true
     player:gotoRight()
@@ -11,14 +11,14 @@ local function update(dt)
   elseif love.keyboard.isDown("left") then
     isMoving = true
     player:gotoLeft()
-  
+
   end
 
   if isMoving == false then
     if py == 0 then
       player:setWalking()
     end
-    
+
     player.animation:gotoFrame(1)
   end
 
@@ -30,7 +30,7 @@ local function update(dt)
   local h = love.graphics.getHeight()
   local mapW = gameMap.width * gameMap.tilewidth
   local mapH = gameMap.height * gameMap.tileheight
-  
+
   -- top
   if cam.y <= h/4 then
     cam.y = h/4
@@ -63,20 +63,21 @@ local function update(dt)
 
   world:update(dt)
 
-  if gameIsPaused == false then
+  if isPaused == false then
     player.animation:update(dt)
-    
-    for idx, enemy in pairs(sunEnemies) do
+    goal.animation:update(dt)
+
+    for idx, enemy in pairs(enemies) do
       enemy.animation:update(dt)
       if enemy.collider:enter("Player") then
-        player:hurt()
+        player:damage()
       end
     end
-  end
-end
 
-local function camUpdate()
-    
+    if goal.collider:enter("Player") then
+      player:goal()
+    end
+  end
 end
 
 return update

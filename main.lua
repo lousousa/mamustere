@@ -6,8 +6,10 @@ timer = require "libraries/timer" -- hump
 
 require "models/Player"
 require "models/Enemy"
+require "models/Goal"
 
-gameIsPaused = false
+isPaused = false
+isShowingEndingScreen = false
 
 function love.load()
   local load = require("source/load")
@@ -29,28 +31,6 @@ function love.keypressed(key)
 end
 
 function love.draw()
-  cam:attach()    
-    gameMap:drawLayer(gameMap.layers["platforms"])
-    
-    for idx, enemy in pairs(sunEnemies) do
-      enemy.animation:draw(
-        enemy.spriteSheet,
-        enemy.x,
-        enemy.y
-      )
-    end
-
-    player.animation:draw(
-      player.spriteSheet,
-      player.x,
-      player.y,
-      nil, -- angle
-      nil, -- scale x
-      nil, -- scale y
-      player.width / 2, -- offset x
-      player.height / 2 -- offset y
-    )
-
-    -- world:draw()
-  cam:detach()
+  local draw = require("source/draw")
+  draw()
 end

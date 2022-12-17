@@ -5,9 +5,13 @@ local function load()
   cam = camera(0, 0, 2)
   world = wf.newWorld(0, 500)
   gameMap = sti("maps/level-00.lua")
-  
+  primaryFont = love.graphics.newFont("assets/fonts/press-start.ttf", 18)
+  primaryFont:setLineHeight(2)
+  love.graphics.setFont(primaryFont)
+
   world:addCollisionClass("Enemy")
   world:addCollisionClass("Player")
+  world:addCollisionClass("Goal")
 
   if gameMap.layers["block-platforms"] then
     for i, obj in pairs(gameMap.layers["block-platforms"].objects) do
@@ -16,12 +20,17 @@ local function load()
     end
   end
 
-  sunEnemies = {}
+  enemies = {}
   if gameMap.layers["sun-enemies"] then
     for i, obj in pairs(gameMap.layers["sun-enemies"].objects) do
       local enemy = Enemy:new{ x = obj.x + 32, y = obj.y }
-      table.insert(sunEnemies, enemy)
+      table.insert(enemies, enemy)
     end
+  end
+
+  if gameMap.layers["goal"] then
+    local obj = gameMap.layers["goal"].objects[1]
+    goal = Goal:new{ x = obj.x + 32, y = obj.y }
   end
 
   player = Player:new{

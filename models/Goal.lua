@@ -1,6 +1,6 @@
-Enemy = {}
+Goal = {}
 
-function Enemy:new (o)
+function Goal:new (o)
   -- o = o or {}
   setmetatable(o, self)
   self.__index = self
@@ -8,7 +8,7 @@ function Enemy:new (o)
   o.width = 16
   o.height = 16
 
-  o.spriteSheet = love.graphics.newImage("assets/images/sun.png")
+  o.spriteSheet = love.graphics.newImage("assets/images/goal.png")
 
   o.grid = anim8.newGrid(
     o.width,
@@ -18,13 +18,13 @@ function Enemy:new (o)
   )
 
   o.animations = {
-    idle = anim8.newAnimation(o.grid("1-3", 1), 0.125)
+    idle = anim8.newAnimation(o.grid(1, 1), 0.125)
   }
 
   o.animation = o.animations.idle
 
   o.collider = world:newCircleCollider(o.x + 8, o.y + 8, o.width / 2 - 4)
-  o.collider:setCollisionClass("Enemy")
+  o.collider:setCollisionClass("Goal")
   o.collider:setFixedRotation(true)
   o.collider:setType("static")
 
