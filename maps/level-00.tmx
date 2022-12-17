@@ -96,8 +96,8 @@
   <object id="226" x="912" y="1440" width="32" height="16"/>
   <object id="228" x="224" y="1296" width="16" height="48"/>
  </objectgroup>
- <objectgroup id="7" name="goal" locked="1">
-  <object id="239" x="320" y="1568" width="16" height="16"/>
+ <objectgroup id="7" name="goal">
+  <object id="239" x="316" y="1564" width="24" height="24"/>
  </objectgroup>
  <objectgroup id="5" name="sun-enemies" locked="1" offsetx="32" offsety="0">
   <object id="140" x="480" y="1360" width="16" height="16"/>
