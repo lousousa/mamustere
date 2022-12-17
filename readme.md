@@ -28,7 +28,7 @@ a platformer game developed using the \*awesome\* [love2d](https://love2d.org/) 
 
 1- `npm -g i love.js`
 
-2- `love.js mamustere.love dist -c` (it works better with the ".game" file, and "-c" compatibility mode)
+2- `love.js mamustere.love dist -c` (it works better with the ".love" file, and "-c" compatibility mode)
 
 3- in the [build](https://github.com/lousousa/mamustere/tree/build) project, you can keep the current `index.html` file and `theme` folder.
 
