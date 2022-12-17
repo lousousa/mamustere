@@ -5,10 +5,10 @@ function Goal:new (o)
   setmetatable(o, self)
   self.__index = self
 
-  o.width = 16
-  o.height = 16
+  o.width = 24
+  o.height = 24
 
-  o.spriteSheet = love.graphics.newImage("assets/images/goal.png")
+  o.spriteSheet = love.graphics.newImage("assets/images/moon.png")
 
   o.grid = anim8.newGrid(
     o.width,
@@ -18,12 +18,12 @@ function Goal:new (o)
   )
 
   o.animations = {
-    idle = anim8.newAnimation(o.grid(1, 1), 0.125)
+    idle = anim8.newAnimation(o.grid("1-6", 1), 0.125)
   }
 
   o.animation = o.animations.idle
 
-  o.collider = world:newCircleCollider(o.x + 8, o.y + 8, o.width / 2 - 4)
+  o.collider = world:newCircleCollider(o.x + 12, o.y + 12, o.width / 2 - 6)
   o.collider:setCollisionClass("Goal")
   o.collider:setFixedRotation(true)
   o.collider:setType("static")

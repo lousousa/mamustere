@@ -30,7 +30,7 @@ local function load()
 
   if gameMap.layers["goal"] then
     local obj = gameMap.layers["goal"].objects[1]
-    goal = Goal:new{ x = obj.x + 32, y = obj.y }
+    goal = Goal:new{ x = obj.x, y = obj.y }
   end
 
   player = Player:new{

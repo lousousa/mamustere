@@ -1,6 +1,6 @@
-# mamustere (wip)
+# mamustere
 
-a (wip) platformer game developed using the \*awesome\* [love2d](https://love2d.org/) framework.
+a platformer game developed using the \*awesome\* [love2d](https://love2d.org/) framework.
 
 ## getting started
 
