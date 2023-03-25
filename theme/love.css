@@ -52,6 +52,7 @@ footer .text-wrapper a {
   color: #ff74d3;
 }
 
-#canvas {
-  display: none;
+.canvas-wrapper {
+  max-height: 600px;
+  overflow: hidden;
 }
