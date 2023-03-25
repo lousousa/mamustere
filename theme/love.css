@@ -51,3 +51,7 @@ footer .text-wrapper p {
 footer .text-wrapper a {
   color: #ff74d3;
 }
+
+#canvas {
+  display: none;
+}
