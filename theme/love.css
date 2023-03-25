@@ -17,6 +17,7 @@
 
 main {
   border: 1px solid #ff74d3;
+  max-width: 800px;
 }
 
 footer {
